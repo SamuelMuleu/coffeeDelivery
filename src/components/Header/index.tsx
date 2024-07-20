@@ -3,14 +3,13 @@ import { HeaderContainer, LocationContainer } from "./style";
 import logo from "../../assets/Logo.svg";
 import { ShoppingCart, MapPin } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
-import { ProductsSelectedContext } from "../Cards/index";
-import { useContext } from "react";
+/*import { ProductsSelectedContext } from "../Cards/index";
+import { useContext } from "react";*/
 
 
 export const Header = () => {
 
- const productsSelected = useContext(ProductsSelectedContext)
-
+/* const productsSelected = useContext(ProductsSelectedContext)*/
   return (
     <HeaderContainer>
       <Link to={"/"}>
