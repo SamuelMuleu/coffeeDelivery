@@ -6,8 +6,6 @@ export default defineConfig({
   base:'/',
   build: {
     outDir:'dist',
-    rollupOptions: {
-      external: ['styled-components'], // Adicione outras dependências se necessário
-    },
+ 
   },
 });
