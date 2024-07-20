@@ -6,7 +6,7 @@ import { Article } from "../../components/Article";
 
 export const Home = () => {
   return (
-    <HomeContainer className="header">
+    <HomeContainer >
   
       <Article/>
       <h2>Nossos Cafés</h2>
