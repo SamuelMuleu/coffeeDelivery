@@ -91,5 +91,6 @@ width: 11rem;
 }
 button:focus{
 outline: 1px solid #4B2995;
+background-color:#EBE5F9;
 }
 `
