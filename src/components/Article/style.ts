@@ -67,7 +67,7 @@ p{
 `
 
 
-export const TagsContainer = styled.div<SvgProps>`
+export const TagsContainer = styled.div`
 
 
 display: grid;

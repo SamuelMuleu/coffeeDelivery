@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ButtonShopping, CounterContainer, CounteCountainer } from "./style";
 import { ShoppingCart } from "@phosphor-icons/react";
+import { OrderContext } from "../../contexts/Context";
 
 
 interface Product {
@@ -16,6 +17,16 @@ interface Props {
 export function Counter({ product,onUpdate }: Props) {
   const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
+   const { addOrder } = useContext(OrderContext);
+
+
+  const handleAddOrder = () => {
+
+    
+    addOrder({ product: { id: Math.random(), count, price: 10 }, quantity: count });
+
+  };
+
 
   const inc = () => {
     const newCount = count + 1;
@@ -52,8 +63,11 @@ export function Counter({ product,onUpdate }: Props) {
       </CounteCountainer>
       <ButtonShopping>
   
-        <button>
+        <button
+        onClick={handleAddOrder}
+       >
           <ShoppingCart weight="fill" size={20} />
+        
         </button>
 
       </ButtonShopping>

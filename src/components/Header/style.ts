@@ -54,3 +54,19 @@ gap: 15px;
 
 
 `
+export const OrderContainer = styled.div`
+position: absolute;
+top: .7rem;
+right: 8.5rem;
+color: #ffff;
+border-radius:50%;
+background-color: #C47F17;
+width: 1rem;
+font-weight: bold;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 1rem;
+
+
+`

@@ -17,6 +17,8 @@ import arabe from "../../assets/Image10.png";
 import irlandes from "../../assets/Image11.png";
 import { createContext } from "react";
 
+
+
 const coffees = [
   {
     id: 1,
@@ -154,11 +156,21 @@ const coffees = [
 
 export const ProductsContext = createContext(coffees);
 export const Main = () => {
+
+
+
+
+  
   return (
     <MainContainer>
+
+
+
       <ProductsContext.Provider value={coffees}>
         <Card />
       </ProductsContext.Provider>
+
+
     </MainContainer>
   );
 };

@@ -3,6 +3,7 @@ import main from "../../assets/main.png";
 import { ShoppingCart, Timer, Package, Coffee } from "@phosphor-icons/react";
 
 
+
 export const Article = () => {
   return (
     <Container>
@@ -15,7 +16,7 @@ export const Article = () => {
         Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora
       </p>
 
-      <TagsContainer>
+      <TagsContainer >
         <SvgColor   variant='orange'>
           <ShoppingCart weight="fill" />
           Compra simples e segura

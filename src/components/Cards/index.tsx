@@ -1,4 +1,4 @@
-import { useContext, createContext } from "react";
+import { useContext } from "react";
 import {
   CardContainer,
   Container,
@@ -11,7 +11,6 @@ import { Counter } from "../Counter";
 const handleUpdate = (id: number, count: number, price: number) => {
   console.log(`Produto ID: ${id}, Quantidade: ${count}, Preço: ${price}`);
 };
-export const ProductsSelectedContext = createContext(handleUpdate);
 
 export function Card() {
   const products = useContext(ProductsContext);
@@ -31,6 +30,7 @@ export function Card() {
             </CategoryContent>
             <h3>{product.name}</h3>
             <span>{product.description}</span>
+
             <CounterContainer>
               <Counter product={product} onUpdate={handleUpdate} />
             </CounterContainer>
