@@ -1,5 +1,5 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { CardsContainer, CompleteOrderContainer, FormContainer } from "./style";
+import {  CardsContainer, CompleteOrderContainer, FormContainer } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useState } from "react";
 

@@ -52,6 +52,7 @@ width: 3.8rem;
 }
 
 `
+
 export const CardsContainer = styled.div`
 display: flex;
 gap: 20px;
@@ -68,5 +69,6 @@ width: 11rem;
 }
 button:focus{
 outline: 1px solid #4B2995;
+background-color:#EBE5F9;
 }
 `
