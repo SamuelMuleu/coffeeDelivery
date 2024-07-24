@@ -14,12 +14,3 @@ background-color: #ffff;
 `
 
 
-export const SelectedCoffeeContainer = styled.div`
-width: 28rem;
-p:nth-child(1){
-
-font-weight: bold;
-}
-
-`
-

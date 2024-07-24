@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   CardContainer,
   Container,
@@ -8,13 +8,19 @@ import {
 import { ProductsContext } from "../Main/index.tsx";
 import { Counter } from "../Counter";
 
-const handleUpdate = (id: number, count: number, price: number) => {
-  console.log(`Produto ID: ${id}, Quantidade: ${count}, Preço: ${price}`);
-};
-
 export function Card() {
   const products = useContext(ProductsContext);
 
+  const handleUpdate = (
+    id: number,
+    count: number,
+    price: number,
+    name: string
+  ) => {
+    console.log(
+      `Produto ID: ${id}, Quantidade: ${count}, Preço: ${price}${name}`
+    );
+  };
 
   return (
     <>

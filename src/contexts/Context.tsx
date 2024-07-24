@@ -2,8 +2,11 @@ import  { ReactNode, useState, createContext, FC } from 'react';
 
 interface Product {
   id: number;
+  name:string;
   count: number;
   price: number;
+  image:string;
+
 }
 
 interface Order {

@@ -3,73 +3,80 @@ import { ButtonShopping, CounterContainer, CounteCountainer } from "./style";
 import { ShoppingCart } from "@phosphor-icons/react";
 import { OrderContext } from "../../contexts/Context";
 
-
 interface Product {
-  id:number;
+  id: number;
   price: number;
+  name: string;
+  image: string;
 }
 
 interface Props {
   product: Product;
-  onUpdate: (id: number, count: number, price: number) => void; 
+  onUpdate: (
+    id: number,
+    count: number,
+    price: number,
+    name: string,
+    image: string
+  ) => void;
 }
 
-export function Counter({ product,onUpdate }: Props) {
+export function Counter({ product, onUpdate }: Props) {
   const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
-   const { addOrder } = useContext(OrderContext);
 
+  const { addOrder } = useContext(OrderContext);
 
   const handleAddOrder = () => {
-
-    
-    addOrder({ product: { id: Math.random(), count, price: 10 }, quantity: count });
-
+    if (product) {
+      addOrder({
+        product: {
+          id: Math.random(),
+          count:count,
+          price: price,
+          name: product.name,
+          image: product.image,
+        },
+        quantity: count,
+      });
+    }
   };
 
-
   const inc = () => {
-    const newCount = count + 1;
-    const newPrice = price + product.price;
-    setCount(newCount);
-    setPrice(newPrice);
-    onUpdate(product.id, newCount, newPrice);
- 
+    if (product && onUpdate) {
+      const newCount = count + 1;
+      const newPrice = price + product.price;
+      setCount(newCount);
+      setPrice(newPrice);
+      onUpdate(product.id, newCount, newPrice, product.name, product.image);
+    }
   };
 
   const dec = () => {
-    if (count > 0) {
+    if (count > 0 && product && onUpdate) {
       const newCount = count - 1;
       const newPrice = price - product.price;
       setCount(newCount);
       setPrice(newPrice);
-      onUpdate(product.id, newCount, newPrice);
-}
+      onUpdate(product.id, newCount, newPrice, product.name, product.image);
+    }
   };
-
-
-
 
 
 
   return (
     <CounterContainer>
-      <div>R${(count * product.price).toFixed(2)}</div>
+      {product ? <div>R${(count * product.price).toFixed(2)}</div> : null}
 
       <CounteCountainer>
         <button onClick={dec}>-</button>
-        {count}
+{count}
         <button onClick={inc}>+</button>
       </CounteCountainer>
       <ButtonShopping>
-  
-        <button
-        onClick={handleAddOrder}
-       >
+        <button onClick={handleAddOrder}>
           <ShoppingCart weight="fill" size={20} />
-        
         </button>
-
       </ButtonShopping>
     </CounterContainer>
   );

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CompleteOrderContainer = styled.div`
+background-color: #EDEDED;
 p:nth-child(1){
 
 font-weight: bold;
@@ -10,7 +11,8 @@ div{
     align-items: center;
 
 
-}`
+}
+`
 
 
 export const FormContainer = styled.div`
@@ -18,10 +20,9 @@ export const FormContainer = styled.div`
 display: flex;
 width:40rem;
 
+
 input{
     border: none;
-
-    background-color:#ddd9d9;
     margin: .3rem;
     height: 2.6rem;
     border-radius: 8px;
@@ -56,6 +57,7 @@ width: 3.8rem;
 export const CardsContainer = styled.div`
 display: flex;
 gap: 20px;
+
 button{
     border: none;
     border-radius: 8px;
@@ -69,6 +71,6 @@ width: 11rem;
 }
 button:focus{
 outline: 1px solid #4B2995;
-background-color:#EBE5F9;
+background-color:#b2a4fb;
 }
 `

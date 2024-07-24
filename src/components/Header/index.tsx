@@ -1,4 +1,4 @@
-import { HeaderContainer, LocationContainer,OrderContainer } from "./style";
+import { HeaderContainer, LocationContainer, OrderContainer } from "./style";
 import logo from "../../assets/Logo.svg";
 import { ShoppingCart, MapPin } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
@@ -26,12 +26,12 @@ export const Header = () => {
         <Link to={"/checkout"}>
           <button>
             <ShoppingCart weight="fill" size={20} />
-            
 
-            <OrderContainer>
-            {totalItems ? <span>{totalItems}</span> : null}
-
-            </OrderContainer>
+            {totalItems ? (
+              <OrderContainer>
+                <span>{totalItems}</span>
+              </OrderContainer>
+            ) : null}
           </button>
         </Link>
       </LocationContainer>
