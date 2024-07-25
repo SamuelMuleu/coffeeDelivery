@@ -2,7 +2,7 @@ import { HomeContainer } from "./styles";
 
 import { Main } from "../../components/Main";
 import { Article } from "../../components/Article";
-import { Card } from "../../components/Cards";
+
 
 
 export const Home = () => {
@@ -14,7 +14,7 @@ export const Home = () => {
       <h2>Nossos Cafés</h2>
 
       <Main />
-      <Card />
+
     </HomeContainer>
   );
 };

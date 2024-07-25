@@ -8,7 +8,7 @@ import {
 import { ProductsContext } from "../Main/index.tsx";
 import { Counter } from "../Counter";
 
-export function Card() {
+export const  Card = () => {
   const products = useContext(ProductsContext);
 
   const handleUpdate = (
@@ -24,7 +24,7 @@ export function Card() {
 
   return (
     <>
-      {products.map((product) => (
+      { products ? products.map((product) => (
         <Container key={product.id}>
           <CardContainer>
             <img src={product.image} alt={product.name} />
@@ -42,7 +42,7 @@ export function Card() {
             </CounterContainer>
           </CardContainer>
         </Container>
-      ))}
+      )) : null}
     </>
   );
 }

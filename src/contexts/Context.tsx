@@ -36,11 +36,13 @@ export const OrderProvider: FC<OrderProviderProps> = ({ children }) => {
   const addOrder = (order: Order) => {
 
 
-    setOrders([...orders, order]);
-
+    
     if(order.quantity <= 0 ){
-      setOrders([...orders])
+      return
     }
+    
+
+    setOrders((prevOrders) => [...prevOrders, order]);
   };
 
 
