@@ -5,6 +5,7 @@
       secondary: '#6c757d',
       background: '#ffff',
       text: '#343a40',
+      button:'#DBAC2C',
     },
 
   };

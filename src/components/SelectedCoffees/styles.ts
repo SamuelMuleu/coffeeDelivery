@@ -3,6 +3,12 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+display: flex;
+align-items: center;
+flex-direction: column;
+
+justify-content: center;
+
 
 `
 
@@ -67,6 +73,7 @@ height: 2rem;
 cursor: pointer;
 align-items: center;
 justify-content: center;
+
 margin-left: 1rem;
 
 
@@ -88,3 +95,41 @@ margin-top: -1rem;
 
 `
 
+export const TotalItems = styled.div`
+display: flex;
+
+
+
+flex-direction: row;
+justify-content: space-between;
+margin-bottom: 2rem;
+gap: 13rem;
+div{
+    display: flex;
+    flex-direction: column;
+justify-content: space-between;
+gap: 9px;
+
+}
+
+
+`
+export const ButtonPrices = styled.button`
+background-color:#DBAC2C;
+color: white;
+border: none;
+
+width: 23rem;
+height: 2.8rem;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+font-size: 1rem;
+border-radius:5px;
+
+&:hover{
+    transform:scale(1.1) ;
+
+}
+`

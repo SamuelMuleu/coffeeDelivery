@@ -3,16 +3,33 @@ import logo from "../../assets/Logo.svg";
 import { ShoppingCart, MapPin } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { OrderContext } from "../../contexts/Context";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export const Header = () => {
   const { orders } = useContext(OrderContext);
 
-  const totalItems = orders.reduce((total, order) => {
-    return total + order.quantity;
-  }, 0);
-  console.log(orders);
+  const [totalItems, setTotalItems] = useState(0);
 
+  useEffect(()=>{
+
+    const totalItems = orders.reduce((total, order) => {
+      return total + order.quantity;
+    }, 0);
+    console.log(orders)
+    setTotalItems(totalItems);
+
+
+  },[orders])
+
+
+
+  useEffect(() => {
+
+    const storedOrdersLength = localStorage.getItem("orders.length");
+    if (storedOrdersLength) {
+      setTotalItems(Number(storedOrdersLength));
+    }
+  }, []);
   return (
     <HeaderContainer>
       <Link to={"/"}>

@@ -11,7 +11,7 @@ interface Product {
 }
 
 interface Props {
-  product: Product;
+  product?: Product;
   onUpdate: (
     id: number,
     count: number,
@@ -25,14 +25,16 @@ export function Counter({ product, onUpdate }: Props) {
   const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
 
-  const { addOrder } = useContext(OrderContext);
+  const { orders, addOrder } = useContext(OrderContext);
+  const ordersString = JSON.stringify(orders);
 
+  localStorage.setItem("orders.lenght", ordersString);
   const handleAddOrder = () => {
     if (product) {
       addOrder({
         product: {
           id: Math.random(),
-          count:count,
+          count: count,
           price: price,
           name: product.name,
           image: product.image,
@@ -62,15 +64,13 @@ export function Counter({ product, onUpdate }: Props) {
     }
   };
 
-
-
   return (
     <CounterContainer>
       {product ? <div>R${(count * product.price).toFixed(2)}</div> : null}
 
       <CounteCountainer>
         <button onClick={dec}>-</button>
-{count}
+        {count}
         <button onClick={inc}>+</button>
       </CounteCountainer>
       <ButtonShopping>

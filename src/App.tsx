@@ -7,6 +7,7 @@ import theme from "./styles/themes/theme";
 
 import { Header } from "./components/Header";
 import { OrderProvider } from "./contexts/Context";
+import { Success } from "./pages/Sucess";
 
 function App() {
   return (
@@ -15,14 +16,15 @@ function App() {
         <Router>
           <GlobalStyle />
 
-            <OrderProvider>
-          <Header />
+          <OrderProvider>
+            <Header />
 
-          <Routes>
+            <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/checkout" element={<Checkout />} />
-          </Routes>
-            </OrderProvider>
+              <Route path="/success" element={<Success />} />
+            </Routes>
+          </OrderProvider>
         </Router>
       </ThemeProvider>
     </>
