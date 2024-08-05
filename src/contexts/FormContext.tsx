@@ -1,6 +1,9 @@
 import { createContext, FC, ReactNode, useContext, useState } from "react";
 
+
+
 interface FormData {
+  paymentMethod: string | undefined;
   cep: string;
   rua: string;
   numero: string;
@@ -19,7 +22,7 @@ interface OrderProviderProps {
   children: ReactNode;
 }
 
-const FormContext = createContext<FormContextType | undefined>(undefined);
+export const FormContext = createContext<FormContextType | undefined>(undefined);
 
 export const FormProvider: FC<OrderProviderProps> = ({ children }) => {
   const [formData, setFormData] = useState<FormData | undefined>(undefined);

@@ -8,23 +8,24 @@ import theme from "./styles/themes/theme";
 import { Header } from "./components/Header";
 import { OrderProvider } from "./contexts/Context";
 import { Success } from "./pages/Sucess";
-
+import { FormProvider } from "./contexts/FormContext";
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
         <Router>
           <GlobalStyle />
+          <FormProvider>
+            <OrderProvider>
+              <Header />
 
-          <OrderProvider>
-            <Header />
-
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/success" element={<Success />} />
-            </Routes>
-          </OrderProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/success" element={<Success />} />
+              </Routes>
+            </OrderProvider>
+          </FormProvider>
         </Router>
       </ThemeProvider>
     </>

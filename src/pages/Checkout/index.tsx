@@ -7,7 +7,7 @@ import {
 
 import {Form} from "../../components/Form"
 import { SelectedCoffee } from "../../components/SelectedCoffees";
-import { FormProvider } from "../../contexts/FormContext";
+
 
 
 
@@ -17,7 +17,7 @@ export const Checkout = () => {
 
   return (
   
-    <FormProvider>
+
 
     <CheckoutContainer>
       <Form/>
@@ -25,6 +25,6 @@ export const Checkout = () => {
    
     
     </CheckoutContainer>
-    </FormProvider>
+
   );
 };

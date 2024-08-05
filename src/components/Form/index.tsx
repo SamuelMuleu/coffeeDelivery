@@ -22,11 +22,14 @@ import {
   ButtonPrices,
 } from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { OrderContext } from "../../contexts/Context";
+
 import { useContext, useEffect, useState } from "react";
+import {  useFormContext  } from "../../contexts/FormContext";
 
 interface FormData {
+  paymentMethod: string | undefined;
   cep: string;
   rua: string;
   numero: string;
@@ -34,10 +37,6 @@ interface FormData {
   bairro: string;
   cidade: string;
   uf: string;
-
-
-
-
 }
 
 export const Form = () => {
@@ -45,16 +44,16 @@ export const Form = () => {
   const [sumPrice, setSumPrice] = useState<number>(0);
   const [delivery, setDelivery] = useState<number>(3.5);
   const [total, setTotal] = useState<number>(0);
-  const [paymentMethod, setPaymentMethod] = useState<string>("");
+  const [paymentMethod, setPaymentMethod] = useState<string>();
   const { orders, removeOrder } = useContext(OrderContext);
+  const { setFormData } = useFormContext();
   const navigate = useNavigate();
-  
-  
-  
+
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log("Form Data:", { ...data, paymentMethod });
- 
-    navigate('/success');
+    const context = { ...data, paymentMethod };
+    setFormData(context)
+    navigate("/success");
+
   };
 
   useEffect(() => {
@@ -72,10 +71,10 @@ export const Form = () => {
     setTotal(sumPrice + delivery);
   }, [sumPrice, delivery]);
 
-
   const handlePaymentSelection = (method: string) => {
     setPaymentMethod(method);
   };
+
 
   return (
     <CompleteOrderContainer>
@@ -137,7 +136,7 @@ export const Form = () => {
             <button
               type="button"
               id="credit"
-              onClick={() => handlePaymentSelection("credit")}
+              onClick={() => handlePaymentSelection("Cartão de Crédito")}
             >
               <CreditCard color="#8047F8" size={20} />
               Cartão de Crédito
@@ -145,18 +144,17 @@ export const Form = () => {
             <button
               type="button"
               id="debit"
-              onClick={() => handlePaymentSelection("debit")}
+              onClick={() => handlePaymentSelection("Cartão de Débito")}
             >
               <Bank color="#8047F8" size={20} />
               Cartão de Débito
             </button>
-            <button type="button">
-              <Money
-                color="#8047F8"
-                size={20}
-                id="money"
-                onClick={() => handlePaymentSelection("money")}
-              />
+            <button
+              type="button"
+              id="money"
+              onClick={() => handlePaymentSelection("Dinheiro")}
+            >
+              <Money color="#8047F8" size={20} />
               Dinheiro
             </button>
           </CardsContainer>
@@ -212,10 +210,9 @@ export const Form = () => {
           </div>
         </TotalItems>
 
-          <ButtonPrices onClick={handleSubmit(onSubmit)}>
-            Confirmar pedido
-          </ButtonPrices>
- 
+        <ButtonPrices onClick={handleSubmit(onSubmit)}>
+          Confirmar pedido
+        </ButtonPrices>
       </Container>
     </CompleteOrderContainer>
   );

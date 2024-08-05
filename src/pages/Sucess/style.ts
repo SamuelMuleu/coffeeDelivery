@@ -23,6 +23,7 @@ display: flex;
 
 justify-content: space-around;
 
+
 align-items: center;
 
 
@@ -62,12 +63,15 @@ padding: 1rem;
 
 
 export const SvgColor = styled.div<SvgProps>`
+
+
+
 svg{
 
     border-radius: 50%;
     ${({ variant }) => `background-color: ${SvgVariants[variant as SvgVariant]};`}
     align-items: center;
-    height: 1.3rem;
+    height: 1.2rem;
     padding: .3rem;
     margin-right: .4rem;
 }
@@ -84,6 +88,7 @@ div{
     display: flex;
     align-items: center;
     justify-content: center;
+  
 }
 
 display: flex;
