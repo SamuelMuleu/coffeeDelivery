@@ -23,14 +23,23 @@ display: flex;
 
 justify-content: space-around;
 
-
-align-items: center;
-
+align-items: center; 
 
 h2{
     color:#C47F17 ;
 }
+ img{
+    margin-top: 6rem;
+ }
 
+ div{
+    display: flex;
+    flex-direction: column;
+ 
+
+
+
+}
 
 
 `
@@ -41,9 +50,9 @@ display: flex;
 flex-direction: column;
 
 
-width: 32rem;
+min-width: 32rem;
 
-height: 14rem;
+min-height: 14rem;
 
 
 
@@ -52,12 +61,25 @@ height: 14rem;
 
 export const BorderContainer = styled.div`
 border: 1px solid transparent; 
-
+max-height: 16rem;
+min-width: 32rem;
 border-radius: 20px;
 
   border-image: linear-gradient(to right, red, yellow, green); 
   border-image-slice: 1;
-padding: 1rem;
+padding: 2rem;
+align-items: start;
+
+div{
+
+
+overflow: hidden;
+display: flex;
+flex-direction: row;
+
+
+}
+
 
 `
 
@@ -65,15 +87,14 @@ padding: 1rem;
 export const SvgColor = styled.div<SvgProps>`
 
 
-
 svg{
-
     border-radius: 50%;
     ${({ variant }) => `background-color: ${SvgVariants[variant as SvgVariant]};`}
     align-items: center;
     height: 1.2rem;
     padding: .3rem;
-    margin-right: .4rem;
+    margin-right:.7rem;
+margin-top:1rem;
 }
 
 

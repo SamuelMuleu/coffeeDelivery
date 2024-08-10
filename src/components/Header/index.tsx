@@ -4,6 +4,7 @@ import { ShoppingCart, MapPin } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { OrderContext } from "../../contexts/Context";
 import { useContext, useEffect, useState } from "react";
+import { useFormContext } from "../../contexts/FormContext";
 
 export const Header = () => {
   const { orders } = useContext(OrderContext);
@@ -22,6 +23,7 @@ export const Header = () => {
   },[orders])
 
 
+  const { formData } = useFormContext();
 
   useEffect(() => {
 
@@ -37,7 +39,14 @@ export const Header = () => {
       </Link>
       <LocationContainer>
         <span>
-          <MapPin weight="fill" size={20} /> Porto Alegre, RS
+          <MapPin weight="fill" size={20} />
+          
+          {formData ? (
+  <>
+    {formData.cidade}, {formData.uf}
+  </>
+) : <p>RJ</p>}
+
         </span>
 
         <Link to={"/checkout"}>

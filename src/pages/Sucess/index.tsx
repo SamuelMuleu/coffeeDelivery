@@ -27,27 +27,34 @@ export const Success = () => {
                 <MapPin weight="fill" />
               </SvgColor>
               <p>
-                Entrega{" "}
+                Entrega em {" "}
                 <strong>
-   
                   {formData?.rua}, {formData?.numero}{" "}
                 </strong>
-                <p>
-              {formData?.bairro} - {formData?.cidade},{formData?.uf}
-            </p>
+                <p style={{position:'relative',bottom:'.8rem'}}>
+                  {formData?.bairro} - {formData?.cidade},{formData?.uf}
+                </p>
               </p>
             </SuccessContainer>
-     
           </StatusContainer>
 
           <StatusContainer>
-            <SuccessContainer>
+            <SuccessContainer style={{marginTop:'-1rem'}}>
               <SvgColor variant="yellow">
                 <Timer weight="fill" />
               </SvgColor>
-              <p>Previisão de entrega</p>
+              <div>
+
+              <p>
+                Previsão de entrega
+                </p>
+          
+            <p >
+      
+                <p style={{fontWeight:'bold',position:'absolute',left:'9rem' ,top:'21.9rem'}}> 20min-30min</p>
+              </p>
+              </div>
             </SuccessContainer>
-            <strong> 20min-30min</strong>
           </StatusContainer>
           <StatusContainer>
             <SuccessContainer>
@@ -55,10 +62,11 @@ export const Success = () => {
                 <CurrencyDollar weight="fill" />
               </SvgColor>
               <p>Pagamento na entrega</p>
-    
-              <strong> {formData?.paymentMethod} </strong>
+
+              <p>
+                <p style={{fontWeight:'bold',position:'absolute',left:'9rem' ,top:'24.9rem'}}> {formData?.paymentMethod} </p>
+              </p>
             </SuccessContainer>
-     
           </StatusContainer>
         </BorderContainer>
       </Container>
