@@ -1,11 +1,21 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 2rem;
 
-display: grid;
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-grid-template-columns: repeat(4, 1fr);
-margin: 2rem;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 1rem;
+  }
 
-
-`
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    margin: 0.5rem;
+  }
+`;

@@ -40,7 +40,50 @@ button{
   height: 2.3rem;
   align-items: center;
 
+
+
 }
+
+@media (max-width: 768px) {
+    padding: 1rem 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+
+    img {
+      height: 2rem;
+    }
+
+    button {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+
+    img {
+      height: 1.8rem;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+    button {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
 `;
 export const LocationContainer = styled.div`
  
@@ -68,5 +111,17 @@ align-items: center;
 justify-content: center;
 height: 1rem;
 
+@media (max-width: 768px) {
+    top: 0.5rem;
+    right: 6rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 
+  @media (max-width: 480px) {
+    top: 0.5rem;
+    left: 4rem;
+    width: 1rem;
+    height: 1rem;
+  }
 `

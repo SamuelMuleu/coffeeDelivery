@@ -1,109 +1,102 @@
 import styled from "styled-components";
 
-
 type SvgVariant = 'orange' | 'yellow' | 'gray' | 'purple';
-
 
 interface SvgProps {
     variant: SvgVariant;
 }
 
 const SvgVariants = {
-
     orange: '#C47F17',
     yellow: '#DBAC2C',
     gray: '#574F4D',
     purple: '#8047F8',
-}
-
+};
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%; 
+  padding: 0 1rem; 
 
-display: flex;
-justify-content: center;
-
-width: 90rem;
-img{
+  img {
     margin-left: 2rem;
-}
-`
+
+    height: auto; /* Mantém a proporção */
+  }
+
+  @media (max-width: 768px) {
+margin-left: .5rem;
+
+    img {
+width: 12rem;
+height: 12rem;
+margin-top: 6rem;
+margin-right: 3rem;
+  }
+  }
+`;
 
 export const ArticleContainer = styled.div`
-
-display:flex;
-
-flex-direction: column;
-align-items: center;
-
-height: 10rem;
-
-margin: 3rem;
-
-
-
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin: 1rem 0;
+`;
 
 export const WordsContainer = styled.div`
-width:36rem;
-h1{
-    height: 5rem;
+  width: 100%;
+  max-width: 35rem; /* Limita a largura máxima */
+  margin-left: 1rem;
+
+  h1 {
     font-weight: 900;
-    width: 35rem;
+    font-size: 2.4rem;
     display: flex;
     align-items: center;
-   margin-left: 4rem;
-   font-size: 2.7rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
 
-}
-p{
+  p {
     opacity: 0.6;
-    margin-bottom: 3rem;
-    width: 35rem;
-
-    margin-left: 4rem;
-    margin-top: .7rem;
-}
-
-`
-
+    margin-bottom: 1rem;
+    width: 100%;
+    margin-top: 0.7rem;
+  }
+`;
 
 export const TagsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  margin-left: 0;
+  gap: 1rem;
 
-
-display: grid;
-grid-template-columns: repeat(2,1fr);
-
-height:7rem;
-width: 35.2rem;
-
-margin-left: 3.1rem;
-
-
-div {
+  div {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
   }
-svg{
 
-}
-
-`
+  /* Responsividade */
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Ajusta para 1 coluna em telas menores */
+    width: 100%;
+    margin-left: 0;
+  }
+`;
 
 export const SvgColor = styled.div<SvgProps>`
-svg{
-
+  svg {
     border-radius: 50%;
-    ${({ variant }) => `background-color: ${SvgVariants[variant as SvgVariant]};`}
+    ${({ variant }) => `background-color: ${SvgVariants[variant]};`}
     align-items: center;
     height: 1.3rem;
-    padding: .3rem;
-    margin-right: .4rem;
-}
+    padding: 0.3rem;
+    margin-right: 0.4rem;
+  }
+`;
 
-
-
-
-
-
-`

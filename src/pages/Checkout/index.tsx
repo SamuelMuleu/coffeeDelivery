@@ -6,7 +6,6 @@ import {
 } from "./style";
 
 import {Form} from "../../components/Form"
-import { SelectedCoffee } from "../../components/SelectedCoffees";
 
 
 
@@ -21,7 +20,7 @@ export const Checkout = () => {
 
     <CheckoutContainer>
       <Form/>
-      <SelectedCoffee/>
+     
    
     
     </CheckoutContainer>
