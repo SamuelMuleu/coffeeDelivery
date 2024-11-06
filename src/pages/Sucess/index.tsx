@@ -5,6 +5,7 @@ import {
   SvgColor,
   StatusContainer,
   BorderContainer,
+  PaymentText,
 } from "./style";
 
 import illustration from "../../assets/Illustration.png";
@@ -27,11 +28,11 @@ export const Success = () => {
                 <MapPin weight="fill" />
               </SvgColor>
               <p>
-                Entrega em {" "}
+                Entrega em{" "}
                 <strong>
                   {formData?.rua}, {formData?.numero}{" "}
                 </strong>
-                <p style={{position:'relative',bottom:'.8rem'}}>
+                <p style={{ position: "relative", bottom: ".8rem" }}>
                   {formData?.bairro} - {formData?.cidade},{formData?.uf}
                 </p>
               </p>
@@ -39,20 +40,26 @@ export const Success = () => {
           </StatusContainer>
 
           <StatusContainer>
-            <SuccessContainer style={{marginTop:'-1rem'}}>
+            <SuccessContainer style={{ marginTop: "-1rem" }}>
               <SvgColor variant="yellow">
                 <Timer weight="fill" />
               </SvgColor>
               <div>
+                <p>Previsão de entrega</p>
 
-              <p>
-                Previsão de entrega
+                <p>
+                  <PaymentText
+                    style={{
+                      fontWeight: "bold",
+                      position: "absolute",
+                      left: "9rem",
+                      top: "21.9rem",
+                    }}
+                  >
+                    {" "}
+                    20min-30min
+                  </PaymentText>
                 </p>
-          
-            <p >
-      
-                <p style={{fontWeight:'bold',position:'absolute',left:'9rem' ,top:'21.9rem'}}> 20min-30min</p>
-              </p>
               </div>
             </SuccessContainer>
           </StatusContainer>
@@ -64,7 +71,7 @@ export const Success = () => {
               <p>Pagamento na entrega</p>
 
               <p>
-                <p style={{fontWeight:'bold',position:'absolute',left:'9rem' ,top:'24.9rem'}}> {formData?.paymentMethod} </p>
+                <PaymentText> {formData?.paymentMethod} </PaymentText>
               </p>
             </SuccessContainer>
           </StatusContainer>
