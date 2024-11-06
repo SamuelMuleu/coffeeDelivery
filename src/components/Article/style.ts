@@ -100,6 +100,8 @@ export const TagsContainer = styled.div`
     width: 100%;
     svg{
       margin-left: 5rem;
+    width: auto;
+  
     }
 
   }

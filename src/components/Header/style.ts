@@ -75,11 +75,10 @@ button{
     }
 
     button {
-      width: 1.8rem;
-      height: 1.8rem;
+margin-left: 1rem;
     }
     .totalItems{
-    margin-left: 18.2rem;
+    margin-left: 18rem;
     margin-top: 2.3rem;
     }
 

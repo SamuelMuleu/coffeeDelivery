@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Ajuste para criar 4 colunas */
+  grid-template-columns: repeat(1, 1fr); /* Ajuste para criar 4 colunas */
 
   background-color: #fff;
   border: 1px solid #eee;
@@ -60,6 +60,7 @@ export const CategoryContent = styled.div`
   color: #666;
   margin-bottom: 8px;
   display: flex;
+
   gap: 20px;
   align-items: center;
   justify-content: center;

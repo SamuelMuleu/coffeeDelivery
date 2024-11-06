@@ -50,7 +50,7 @@ export const Header = () => {
         </span>
 
         <Link to={"/checkout"}>
-          <button>
+          <button className="button">
             <ShoppingCart weight="fill" size={20} />
 
             {totalItems ? (

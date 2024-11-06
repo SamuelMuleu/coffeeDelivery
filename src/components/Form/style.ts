@@ -10,6 +10,9 @@ export const CompleteOrderContainer = styled.div`
   
   @media (max-width: 768px) {
     margin: 1rem;
+    width: 80%;
+    border-radius: 2rem;
+    padding: 1rem;
   }
 `;
 
@@ -108,6 +111,15 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+
+  @media (max-width: 768px) {
+
+gap:2rem;
+}
+
+  @media (max-width: 480px) {
+
+  }
 `;
 
 export const SelectedCoffeeContainer = styled.div`
@@ -131,8 +143,9 @@ export const SelectedCoffeeContainer = styled.div`
   /* Responsividade */
   @media (max-width: 768px) {
     width: 100%;
-    flex-direction: column;
-    align-items: center;
+    margin-bottom: 5rem;
+
+
   }
 
   @media (max-width: 480px) {
@@ -158,8 +171,7 @@ export const CounterContainer = styled.div`
   }
 
   @media (max-width: 480px) {
-    width: 3rem;
-    height: 1.8rem;
+
   }
 `;
 
@@ -199,6 +211,7 @@ export const PriceContainer = styled.div`
 
   @media (max-width: 768px) {
     margin-left: 1rem;
+    margin: 1rem;
   }
 `;
 
@@ -218,13 +231,14 @@ export const TotalItems = styled.div`
 
   /* Responsividade */
   @media (max-width: 768px) {
-    flex-direction: column;
+
     gap: 2rem;
+
   }
 
   @media (max-width: 480px) {
     gap: 1rem;
-  }
+      }
 `;
 
 export const ButtonPrices = styled.button`
