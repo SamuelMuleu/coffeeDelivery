@@ -54,8 +54,8 @@ export const Header = () => {
             <ShoppingCart weight="fill" size={20} />
 
             {totalItems ? (
-              <OrderContainer>
-                <span>{totalItems}</span>
+              <OrderContainer  className="totalItems">
+                <div>{totalItems}</div>
               </OrderContainer>
             ) : null}
           </button>

@@ -3,14 +3,14 @@ import styled from "styled-components";
 type SvgVariant = 'orange' | 'yellow' | 'gray' | 'purple';
 
 interface SvgProps {
-    variant: SvgVariant;
+  variant: SvgVariant;
 }
 
 const SvgVariants = {
-    orange: '#C47F17',
-    yellow: '#DBAC2C',
-    gray: '#574F4D',
-    purple: '#8047F8',
+  orange: '#C47F17',
+  yellow: '#DBAC2C',
+  gray: '#574F4D',
+  purple: '#8047F8',
 };
 
 export const Container = styled.div`
@@ -32,8 +32,9 @@ margin-left: .5rem;
     img {
 width: 12rem;
 height: 12rem;
-margin-top: 6rem;
-margin-right: 3rem;
+position: relative;
+top: 14rem;
+right: 16rem;
   }
   }
 `;
@@ -66,6 +67,18 @@ export const WordsContainer = styled.div`
     width: 100%;
     margin-top: 0.7rem;
   }
+  @media (max-width: 768px) {
+
+width: 80%;
+h1{
+  margin-left: 5rem;
+}
+p{
+  margin-left: 5rem;
+  margin-top: 15rem;
+}
+}
+
 `;
 
 export const TagsContainer = styled.div`
@@ -83,10 +96,14 @@ export const TagsContainer = styled.div`
 
   /* Responsividade */
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Ajusta para 1 coluna em telas menores */
+
     width: 100%;
-    margin-left: 0;
+    svg{
+      margin-left: 5rem;
+    }
+
   }
+
 `;
 
 export const SvgColor = styled.div<SvgProps>`

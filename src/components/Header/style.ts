@@ -61,8 +61,9 @@ button{
 
   @media (max-width: 480px) {
     padding: 1rem 1.5rem;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    
 
     img {
       height: 1.8rem;
@@ -70,12 +71,18 @@ button{
 
     span {
       font-size: 14px;
+      
     }
 
     button {
       width: 1.8rem;
       height: 1.8rem;
     }
+    .totalItems{
+    margin-left: 18.2rem;
+    margin-top: 2.3rem;
+    }
+
   }
   @media (max-width: 768px) {
     gap: 10px;
