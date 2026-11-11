@@ -1,49 +1,39 @@
-# Coffee Delivey Frontend
+# Coffee Delivery
 
+Loja de cafés com catálogo, carrinho e checkout com endereço e forma de pagamento, feita em **React + TypeScript** com **styled-components** e **Context API**.
 
+🔗 **Demo:** https://coffeefastdelivery.netlify.app
 
-## Preview
+## Funcionalidades
 
-<img src="https://i.imgur.com/dWhXoQ7.png" alt="Texto Alternativo">
+- Catálogo com 14 cafés, tags e seletor de quantidade
+- Carrinho com `useReducer` + Context: soma itens repetidos, altera quantidades, remove e calcula subtotal, entrega e total
+- Carrinho e último pedido salvos no `localStorage` (sobrevivem ao recarregar a página)
+- Checkout com `react-hook-form`: validação de campos, preenchimento automático do endereço pelo CEP ([ViaCEP](https://viacep.com.br)) e forma de pagamento obrigatória
+- Tela de confirmação com endereço, previsão e pagamento
+- Layout responsivo e acessível (rótulos, `radiogroup`, foco visível)
 
+## Stack
 
-<img src="https://i.imgur.com/QXXFMPV.png" alt="Texto Alternativo">
+React 18 · TypeScript · Vite · styled-components · React Router · react-hook-form · Phosphor Icons
 
-<img src="https://i.imgur.com/lChVTBw.png" alt="Texto Alternativo">
+## Rodando localmente
 
+```bash
+npm install
+npm run dev
+npm run build   # typecheck + build de produção
+npm run lint
+```
 
+## Estrutura
 
-
-## Descrição
-Coffee Delivery é uma aplicação de delivery de café, desenvolvida com o objetivo de aprimorar conhecimentos em React, especialmente o uso do hook useContext. Este projeto simula uma experiência completa de entrega de café, desde a seleção do produto até a confirmação do pedido.
-
-## Tecnologias Utilizadas
-- Reactjs
-- React Router 
-- Styled Components
-- useContext
-
-## Instalação
-1. Clone este repositório.
-2. Execute `npm install` para instalar as dependências.
-3. Execute `npm run dev` para iniciar o servidor de desenvolvimento.
-
-## Estrutura do Projeto
-- `/src`: Contém o código-fonte do projeto.
-  - `/components`: Componentes React reutilizáveis.
-  - `/pages`: Componentes de páginas da aplicação.
-  - `/services`: Configurações e definições da conexão com o backend.
-  -  `/routes`: Configurações e definições de Rotas de usuarios.
-  - `/styles`: Estilos globais ou compartilhados.
-
-
-## Aprendizado
-
-Durante o desenvolvimento deste projeto, foquei em:
-
-Aprender e aplicar o hook useContext para gerenciamento de estado global.
-Trabalhar com React e Vite para criar uma aplicação performática e escalável.
-Implementar formulários de forma eficiente usando React Hook Form.
-
-
-
+```
+src/
+  data/coffees.ts            # catálogo, taxa de entrega e formatação de preço
+  data/order.ts              # tipos de endereço, pedido e pagamento
+  contexts/CartContext.tsx   # estado do carrinho (reducer) + persistência
+  components/                # Header, Article (hero), Cards, QuantityInput
+  pages/                     # Home, Checkout, Sucess
+  styles/themes/             # tema e estilos globais
+```
