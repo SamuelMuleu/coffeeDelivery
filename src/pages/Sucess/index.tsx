@@ -1,83 +1,53 @@
-import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
-import {
-  SuccessContainer,
-  Container,
-  SvgColor,
-  StatusContainer,
-  BorderContainer,
-  PaymentText,
-} from "./style";
-
+import { Navigate } from "react-router-dom";
+import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
 import illustration from "../../assets/Illustration.png";
-import { useFormContext } from "../../contexts/FormContext";
+import { useCart } from "../../contexts/CartContext";
+import { PAYMENT_LABELS } from "../../data/order";
+import { formatPrice } from "../../data/coffees";
+import { Info, InfoList, SuccessContainer } from "./style";
+
 export const Success = () => {
-  const { formData } = useFormContext();
+  const { lastOrder } = useCart();
+  if (!lastOrder) return <Navigate to="/" replace />;
+
+  const { address, payment, total } = lastOrder;
 
   return (
     <SuccessContainer>
-      <Container>
-        <div>
-          <h2>Uhu! Pedido confirmado</h2>
-          <p>Agora é só aguardar que logo o café chegará até você</p>
-        </div>
+      <div>
+        <h1>Uhu! Pedido confirmado</h1>
+        <p>Agora é só aguardar que logo o café chegará até você</p>
 
-        <BorderContainer>
-          <StatusContainer>
-            <SuccessContainer>
-              <SvgColor variant="purple">
-                <MapPin weight="fill" />
-              </SvgColor>
-              <p>
-                Entrega em{" "}
-                <strong>
-                  {formData?.rua}, {formData?.numero}{" "}
-                </strong>
-                <p style={{ position: "relative", bottom: ".8rem" }}>
-                  {formData?.bairro} - {formData?.cidade},{formData?.uf}
-                </p>
-              </p>
-            </SuccessContainer>
-          </StatusContainer>
+        <InfoList>
+          <Info $color="purple">
+            <span><MapPin weight="fill" size={16} /></span>
+            <p>
+              Entrega em <strong>{address.street}, {address.number}</strong>
+              {address.complement ? ` - ${address.complement}` : ""}
+              <br />
+              {address.district} - {address.city}, {address.uf}
+            </p>
+          </Info>
+          <Info $color="yellow">
+            <span><Timer weight="fill" size={16} /></span>
+            <p>
+              Previsão de entrega
+              <br />
+              <strong>20 min - 30 min</strong>
+            </p>
+          </Info>
+          <Info $color="yellowDark">
+            <span><CurrencyDollar size={16} /></span>
+            <p>
+              Pagamento na entrega
+              <br />
+              <strong>{PAYMENT_LABELS[payment]} · R$ {formatPrice(total)}</strong>
+            </p>
+          </Info>
+        </InfoList>
+      </div>
 
-          <StatusContainer>
-            <SuccessContainer style={{ marginTop: "-1rem" }}>
-              <SvgColor variant="yellow">
-                <Timer weight="fill" />
-              </SvgColor>
-              <div>
-                <p>Previsão de entrega</p>
-
-                <p>
-                  <PaymentText
-                    style={{
-                      fontWeight: "bold",
-                      position: "absolute",
-                      left: "9rem",
-                      top: "21.9rem",
-                    }}
-                  >
-                    {" "}
-                    20min-30min
-                  </PaymentText>
-                </p>
-              </div>
-            </SuccessContainer>
-          </StatusContainer>
-          <StatusContainer>
-            <SuccessContainer>
-              <SvgColor variant="orange">
-                <CurrencyDollar weight="fill" />
-              </SvgColor>
-              <p>Pagamento na entrega</p>
-
-              <p>
-                <PaymentText> {formData?.paymentMethod} </PaymentText>
-              </p>
-            </SuccessContainer>
-          </StatusContainer>
-        </BorderContainer>
-      </Container>
-      <img src={illustration} alt="" />
+      <img src={illustration} alt="Entregador em uma moto levando o pedido" width={492} height={293} />
     </SuccessContainer>
   );
 };

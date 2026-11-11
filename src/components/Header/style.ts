@@ -1,133 +1,73 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: ${({ theme }) => theme.colors.background};
 
-  background-color: #fff;
-  padding: 1rem 8.6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-
-img {
-
-  height: 2.5rem;
-}
-
-
-  font-size: 16px;
-  color: #333;
-
-  span{
-
-display: flex;
-align-items: center;
-
-svg{
-  margin-right: .3rem;
-}
-
-  }
-button{
-  border-radius: 5px;
-  width: 2.3rem;
-  border: none;
-
-  align-items: center;
-  cursor: pointer;
-  background-color: #F1E9C9;
-  color:#C47F17 ;
-  height: 2.3rem;
-  align-items: center;
-
-
-
-}
-
-@media (max-width: 768px) {
-    padding: 1rem 3rem;
-    flex-direction: column;
-    align-items: flex-start;
-
-    img {
-      height: 2rem;
-    }
-
-    button {
-      width: 2rem;
-      height: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    padding: 1rem 1.5rem;
-    flex-direction: row;
+  > div {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    
-
-    img {
-      height: 1.8rem;
-    }
-
-    span {
-      font-size: 14px;
-      
-    }
-
-    button {
-margin-left: 1rem;
-    }
-    .totalItems{
-    margin-left: 18rem;
-    margin-top: 2.3rem;
-    }
-
   }
-  @media (max-width: 768px) {
-    gap: 10px;
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 14px;
+    > div {
+      padding: 1rem;
+    }
   }
 `;
-export const LocationContainer = styled.div`
- 
-    margin-bottom: 1rem;
-display: flex;
-align-items: center;
-font-weight: 500;
-gap: 15px;
 
-    color:#8047F8;
+export const Location = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 2.375rem;
+  padding: 0 0.5rem;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.colors.purpleLight};
+  color: ${({ theme }) => theme.colors.purpleDark};
+  font-size: 0.875rem;
 
-
-`
-export const OrderContainer = styled.div`
-position: absolute;
-top: .7rem;
-right: 8.5rem;
-color: #ffff;
-border-radius:50%;
-background-color: #C47F17;
-width: 1rem;
-font-weight: bold;
-display: flex;
-align-items: center;
-justify-content: center;
-height: 1rem;
-
-@media (max-width: 768px) {
-    top: 0.5rem;
-    right: 6rem;
-    width: 1.2rem;
-    height: 1.2rem;
+  svg {
+    color: ${({ theme }) => theme.colors.purple};
   }
+`;
 
-  @media (max-width: 480px) {
-    top: 0.5rem;
-    left: 4rem;
-    width: 1rem;
-    height: 1rem;
-  }
-`
+export const CartLink = styled(Link)`
+  position: relative;
+  display: grid;
+  place-content: center;
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 6px;
+  background: ${({ theme }) => theme.colors.yellowLight};
+  color: ${({ theme }) => theme.colors.yellowDark};
+`;
+
+export const Badge = styled.span`
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  display: grid;
+  place-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: ${({ theme }) => theme.colors.yellowDark};
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 0.75rem;
+  font-weight: 700;
+`;
