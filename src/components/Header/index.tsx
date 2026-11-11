@@ -1,66 +1,30 @@
-import { HeaderContainer, LocationContainer, OrderContainer } from "./style";
-import logo from "../../assets/Logo.svg";
-import { ShoppingCart, MapPin } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
-import { OrderContext } from "../../contexts/Context";
-import { useContext, useEffect, useState } from "react";
-import { useFormContext } from "../../contexts/FormContext";
+import { MapPin, ShoppingCart } from "@phosphor-icons/react";
+import logo from "../../assets/Logo.svg";
+import { useCart } from "../../contexts/CartContext";
+import { Badge, CartLink, HeaderContainer, Location } from "./style";
 
 export const Header = () => {
-  const { orders } = useContext(OrderContext);
+  const { itemsCount, lastOrder } = useCart();
+  const place = lastOrder ? `${lastOrder.address.city}, ${lastOrder.address.uf}` : "Rio de Janeiro, RJ";
 
-  const [totalItems, setTotalItems] = useState(0);
-
-  useEffect(()=>{
-
-    const totalItems = orders.reduce((total, order) => {
-      return total + order.quantity;
-    }, 0);
-    console.log(orders)
-    setTotalItems(totalItems);
-
-
-  },[orders])
-
-
-  const { formData } = useFormContext();
-
-  useEffect(() => {
-
-    const storedOrdersLength = localStorage.getItem("orders.length");
-    if (storedOrdersLength) {
-      setTotalItems(Number(storedOrdersLength));
-    }
-  }, []);
   return (
     <HeaderContainer>
-      <Link to={"/"}>
-        <img src={logo} alt="Coffee Delivery Logo" className="logo" />
-      </Link>
-      <LocationContainer>
-        <span>
-          <MapPin weight="fill" size={20} />
-          
-          {formData ? (
-  <>
-    {formData.cidade}, {formData.uf}
-  </>
-) : <p>RJ</p>}
-
-        </span>
-
-        <Link to={"/checkout"}>
-          <button className="button">
-            <ShoppingCart weight="fill" size={20} />
-
-            {totalItems ? (
-              <OrderContainer  className="totalItems">
-                <div>{totalItems}</div>
-              </OrderContainer>
-            ) : null}
-          </button>
+      <div>
+        <Link to="/" aria-label="Coffee Delivery, página inicial">
+          <img src={logo} alt="Coffee Delivery" width={85} height={40} />
         </Link>
-      </LocationContainer>
+        <nav>
+          <Location>
+            <MapPin weight="fill" size={22} aria-hidden />
+            {place}
+          </Location>
+          <CartLink to="/checkout" aria-label={`Carrinho, ${itemsCount} ${itemsCount === 1 ? "item" : "itens"}`}>
+            <ShoppingCart weight="fill" size={22} />
+            {itemsCount > 0 && <Badge aria-hidden>{itemsCount}</Badge>}
+          </CartLink>
+        </nav>
+      </div>
     </HeaderContainer>
   );
 };

@@ -1,91 +1,89 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const CardContainer = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-export const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr); /* Ajuste para criar 4 colunas */
-
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 16px;
-  height: 20rem;
-  margin: 1rem;
+  padding: 0 1.25rem 1.25rem;
+  margin-top: 1.25rem;
+  border-radius: 6px 36px;
+  background: ${({ theme }) => theme.colors.card};
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   img {
-    height: 6rem;
-    width: 6rem;
-    object-fit: cover;
-    margin-bottom: 8px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-top: -1.25rem;
   }
 
   h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
+    margin-top: 1rem;
+    font-family: ${({ theme }) => theme.fonts.title};
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.subtitle};
   }
 
-  span {
-    opacity: 0.5;
-    margin-bottom: 2rem;
-  }
-
-  /* Responsividade */
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr); /* Ajuste para 3 colunas */
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); /* Ajuste para 2 colunas */
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr; /* Ajuste para 1 coluna em dispositivos móveis */
-    height: auto;
-    margin: 0.5rem;
+  > p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: ${({ theme }) => theme.colors.label};
+    flex: 1;
   }
 `;
 
-export const CategoryContent = styled.div`
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 8px;
+export const Tags = styled.ul`
+  list-style: none;
   display: flex;
-
-  gap: 20px;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
 
-  p {
-    background-color: #F1E9C9;
-    padding: 0.4rem;
-    border-radius: 8px;
-    color: #C47F17;
-    font-weight: 500;
-  }
-
-  /* Responsividade */
-  @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 10px;
+  li {
+    padding: 0.25rem 0.5rem;
+    border-radius: 100px;
+    background: ${({ theme }) => theme.colors.yellowLight};
+    color: ${({ theme }) => theme.colors.yellowDark};
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 `;
 
-export const PriceContainer = styled.div`
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 8px;
+export const Footer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 2rem;
 `;
 
-export const CounterContainer = styled.div`
-  /* Adicionar estilos conforme necessário */
+export const Price = styled.span`
+  margin-right: auto;
+  font-size: 0.875rem;
+  color: ${({ theme }) => theme.colors.text};
+  white-space: nowrap;
+
+  strong {
+    font-family: ${({ theme }) => theme.fonts.title};
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+`;
+
+export const AddButton = styled.button<{ $added: boolean }>`
+  display: grid;
+  place-content: center;
+  width: 2.375rem;
+  height: 2.375rem;
+  border: 0;
+  border-radius: 6px;
+  background: ${({ theme, $added }) => ($added ? theme.colors.yellowDark : theme.colors.purpleDark)};
+  color: ${({ theme }) => theme.colors.card};
+  transition: background-color 0.15s;
+
+  &:hover {
+    background: ${({ theme, $added }) => ($added ? theme.colors.yellowDark : theme.colors.purple)};
+  }
 `;
